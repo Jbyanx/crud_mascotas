@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de mascotas</title>
+</head>
+<body>
+    <h1>Listado de mascotas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Animal</th>
+                <th>Raza</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="mascota : ${listaMascotas}">
+                <td style="border: 1px solid #000000" th:text="${mascota.id}"></td>
+                <td style="border: 1px solid #000000"  th:text="${mascota.animal}"></td>
+                <td style="border: 1px solid #000000"  th:text="${mascota.raza}"></td>
+                <td style="border: 1px solid #000000"  th:text="${mascota.nombre}"></td>
+                <td style="border: 1px solid #000000"  th:text="${mascota.edad}"></td>
+                <td style="border: 1px solid #000000" >
+                    <a th:href="@{/api/mascotas/editar/{id}(id=${mascota.id})}">editar</a>
+                    <a th:href="@{/api/mascotas/eliminar/{id}(id=${mascota.id})}">eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <hr>
+    <a href="/api/mascotas/nueva">Nueva mascota</a>
+</body>
+</html>

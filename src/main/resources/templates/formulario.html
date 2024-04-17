@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mascotas: Registrar y actualizar</title>
+</head>
+<body>
+    <h1>Datos de mascota</h1>
+    <form th:object="${mascota}" th:action="${accion}" method="post">
+        <label>¿Que animal es? <input type="text" th:field="*{animal}"> </label>
+        <label>¿Que raza es? <input type="text" th:field="*{raza}"> </label>
+        <label>¿Que nombre tiene? <input type="text" th:field="*{nombre}"> </label>
+        <label>¿Que edad tiene? <input type="number" th:field="*{edad}"> </label>
+        <button type="submit">guardar</button>
+    </form>
+    <hr>
+    <hr>
+    <a href="/api/mascotas">Listado de mascotas</a>
+</body>
+</html>
